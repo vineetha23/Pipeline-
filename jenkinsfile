@@ -1,0 +1,47 @@
+pipeline{
+agent any{
+stages{
+stage('one'){
+steps{
+echo'hello welcome to jenkins pipeline'
+}
+}
+stage('two')
+{
+steps{
+input('Do you want to proceed')
+}
+}
+stage('three')
+{
+
+when{
+not{
+branch 'master'
+}
+}
+steps{
+echo 'Hello'
+}
+}
+stage ('four')
+{
+paralle{
+stage('unit test'){
+steps{
+echo 'running unit test'
+}
+}
+stage('integration test')
+{
+agent{
+docker{
+reuseNode false
+image 'ubuntu'
+}
+}
+steps{
+echo 'running integration test'
+}
+}
+}
