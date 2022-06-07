@@ -9,12 +9,11 @@ echo'hello welcome to jenkins pipeline'
 stage('two')
 {
 steps{
-input('Do you want to proceed')
+input('Do you want to proceed?')
 }
 }
 stage('three')
 {
-
 when{
 not{
 branch 'master'
@@ -42,6 +41,10 @@ image 'ubuntu'
 }
 steps{
 echo 'running integration test'
+}
+}
+}
+}
 }
 }
 }
