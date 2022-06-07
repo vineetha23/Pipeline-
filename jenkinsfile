@@ -1,8 +1,8 @@
-pipeline{
-agent any{
-stages{
-stage('one'){
-steps{
+pipeline {
+agent any {
+stages {
+stage('one') {
+steps {
 echo'hello welcome to jenkins pipeline'
 }
 }
@@ -14,32 +14,32 @@ input('Do you want to proceed?')
 }
 stage('three')
 {
-when{
-not{
+when {
+not {
 branch 'master'
 }
 }
-steps{
+steps {
 echo 'Hello'
 }
 }
 stage ('four')
 {
-paralle{
-stage('unit test'){
-steps{
+paralle {
+stage('unit test') {
+steps {
 echo 'running unit test'
 }
 }
 stage('integration test')
 {
-agent{
-docker{
+agent {
+docker {
 reuseNode false
 image 'ubuntu'
 }
 }
-steps{
+steps {
 echo 'running integration test'
 }
 }
