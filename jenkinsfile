@@ -25,7 +25,7 @@ echo 'Hello'
 }
 stage ('four')
 {
-paralle {
+parallel {
 stage('unit test') {
 steps {
 echo 'running unit test'
